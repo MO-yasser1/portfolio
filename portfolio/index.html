@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>محمد ياسر | مطور حلول رقمية للأعمال - Mohamed Yasser</title>
+  <meta name="description" content="الموقع الرسمي لمحمد ياسر - مطور حلول رقمية للأعمال. تصميم وتطوير مواقع إلكترونية، أنظمة أعمال مخصصة، منيو إلكتروني، وحلول رقمية عملية في مصر.">
+  <meta name="keywords" content="محمد ياسر, مطور حلول رقمية, تصميم مواقع, مواقع مطاعم, منيو الكتروني, انظمة اعمال, مصر, Mohamed Yasser">
+  <meta name="author" content="Mohamed Yasser">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='25' fill='%230f172a'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='900' font-size='50' fill='%2338bdf8'>MY</text></svg>">
+  
+  <!-- Google Fonts: Cairo (Arabic) & Inter (English/Accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- =================================================================
+       HEADER & NAVIGATION BAR
+  ================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <!-- Logo / Brand -->
+      <a href="#hero" class="brand-logo" aria-label="محمد ياسر - الصفحة الرئيسية">
+        <span class="logo-mark">MY</span>
+        <div class="logo-text">
+          <span class="brand-name">محمد ياسر</span>
+          <span class="brand-sub">Mohamed Yasser</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-desktop" aria-label="شريط التنقل الرئيسي">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">الرئيسية</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">من أنا</a></li>
+          <li class="nav-item"><a href="#services" class="nav-link">الخدمات</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">المهارات</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">أعمالي</a></li>
+          <li class="nav-item"><a href="#how-i-work" class="nav-link">طريقة العمل</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link nav-cta-link">تواصل معي</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions: Theme Toggle & Mobile Menu Button -->
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="تبديل المظهر بين الداكن والفاتح" title="تبديل المظهر">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="theme-icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="theme-icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-toggle" class="mobile-toggle-btn" type="button" aria-label="فتح القائمة الرئيسية" aria-expanded="false" aria-controls="mobile-nav">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobile-nav" class="mobile-nav-drawer" aria-hidden="true">
+      <div class="mobile-nav-inner">
+        <ul class="mobile-nav-list">
+          <li><a href="#hero" class="mobile-nav-link">الرئيسية</a></li>
+          <li><a href="#about" class="mobile-nav-link">من أنا</a></li>
+          <li><a href="#services" class="mobile-nav-link">الخدمات</a></li>
+          <li><a href="#skills" class="mobile-nav-link">المهارات والقدرات</a></li>
+          <li><a href="#projects" class="mobile-nav-link">نماذج من أعمالي</a></li>
+          <li><a href="#how-i-work" class="mobile-nav-link">طريقة العمل</a></li>
+          <li><a href="#why-me" class="mobile-nav-link">لماذا تعمل معي؟</a></li>
+          <li><a href="#vision" class="mobile-nav-link">رؤيتي</a></li>
+          <li><a href="#contact" class="mobile-nav-link mobile-cta">تواصل معي</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Backdrop overlay for mobile menu -->
+  <div id="nav-overlay" class="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main-content">
+    <!-- =================================================================
+         1. HERO SECTION
+    ================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-glow hero-bg-glow-1" aria-hidden="true"></div>
+      <div class="hero-bg-glow hero-bg-glow-2" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <!-- Status / Badge -->
+          <div class="hero-badge reveal">
+            <span class="status-indicator"></span>
+            <span>متاح لاستقبال المشاريع الرقمية الجديدة</span>
+          </div>
+
+          <!-- Titles -->
+          <h1 class="hero-title reveal">
+            <span class="hero-greeting">مرحبًا، أنا</span>
+            <span class="hero-name-ar">محمد ياسر</span>
+            <span class="hero-name-en">Mohamed Yasser</span>
+          </h1>
+
+          <div class="hero-role-wrapper reveal">
+            <h2 class="hero-role-ar">مطور حلول رقمية للأعمال</h2>
+            <span class="hero-role-divider">•</span>
+            <span class="hero-role-en">Digital Solutions Developer</span>
+          </div>
+
+          <!-- Intro Paragraph -->
+          <p class="hero-intro reveal">
+            "أساعد أصحاب الأعمال على تطوير مشاريعهم من خلال تصميم مواقع إلكترونية وحلول رقمية عملية، تجمع بين الإبداع وسهولة الاستخدام وتناسب احتياجات كل نشاط."
+          </p>
+
+          <!-- CTAs -->
+          <div class="hero-cta-group reveal">
+            <a href="#projects" class="btn btn-primary">
+              <span>استكشف أعمالي</span>
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>تواصل معي</span>
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Focus Area Highlights -->
+          <div class="hero-pills reveal">
+            <div class="pill-item">
+              <svg class="pill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              <span>مواقع إلكترونية سريعة</span>
+            </div>
+            <div class="pill-item">
+              <svg class="pill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+              <span>حلول المطاعم والكافيهات</span>
+            </div>
+            <div class="pill-item">
+              <svg class="pill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+              <span>أنظمة تفاعلية وQR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual: Connected Digital Solutions Card -->
+        <div class="hero-visual reveal" aria-hidden="true">
+          <div class="visual-card">
+            <div class="card-glow-border"></div>
+            <div class="visual-header">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="window-title">Digital_Solutions_Matrix.app</span>
+            </div>
+
+            <div class="visual-body">
+              <div class="matrix-node primary-node">
+                <div class="node-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                </div>
+                <div class="node-info">
+                  <strong>الفكرة التجارية</strong>
+                  <small>Business Idea & Vision</small>
+                </div>
+              </div>
+
+              <div class="connector-line">
+                <span class="flow-pulse"></span>
+              </div>
+
+              <div class="matrix-grid">
+                <div class="sub-node">
+                  <span class="badge-tag">تصميم مخصص</span>
+                  <p>واجهات مستخدم سهلة وجذابة</p>
+                </div>
+                <div class="sub-node">
+                  <span class="badge-tag">تطوير حديث</span>
+                  <p>أداء فائق وتوافق مع الهواتف</p>
+                </div>
+                <div class="sub-node">
+                  <span class="badge-tag">أدوات ذكية</span>
+                  <p>دعم بأدوات الذكاء الاصطناعي</p>
+                </div>
+                <div class="sub-node">
+                  <span class="badge-tag">قيمة حقيقية</span>
+                  <p>حل عملي يناسب ميزانيتك</p>
+                </div>
+              </div>
+
+              <div class="result-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>منتج رقمي حقيقي جاهز للعمل والنمو</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         2. ABOUT ME SECTION ("من أنا؟")
+    ================================================================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">نبذة عني</span>
+          <h2 class="section-title">من أنا؟</h2>
+          <p class="section-subtitle">شريكك الرقمي لتحويل الأفكار إلى واقع ملموس</p>
+        </div>
+
+        <div class="about-grid">
+          <!-- Photo Placeholder Area -->
+          <div class="about-photo-wrapper reveal">
+            <div class="photo-card">
+              <!-- =========================================================
+                   EDITABLE PHOTO PLACEHOLDER:
+                   To replace with your actual personal photo:
+                   1. Place your edited image in: /images/mohamed-yasser.jpg
+                   2. Replace the SVG placeholder below with:
+                      <img src="images/mohamed-yasser.jpg" alt="محمد ياسر - مطور حلول رقمية" class="personal-photo-img">
+              ========================================================== -->
+              <div class="photo-placeholder-box" id="personal-photo-container">
+                <img src="images/personal-photo.png" 
+                     onerror="this.onerror=null; this.src='images/mohamed-yasser.svg';" 
+                     alt="محمد ياسر - مطور حلول رقمية للأعمال" 
+                     class="personal-photo-img" 
+                     width="500" 
+                     height="600" 
+                     loading="lazy">
+              </div>
+
+              <!-- Floating Card Badges -->
+              <div class="photo-floating-badge badge-top">
+                <span class="badge-icon">💡</span>
+                <div>
+                  <strong>حلول عملية</strong>
+                  <small>مبنية على فهم نشاطك</small>
+                </div>
+              </div>
+
+              <div class="photo-floating-badge badge-bottom">
+                <span class="badge-icon">⚡</span>
+                <div>
+                  <strong>تطوير مدعوم بالـ AI</strong>
+                  <small>سرعة وجودة وكفاءة</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio Content -->
+          <div class="about-text-content reveal">
+            <div class="quote-card">
+              <p class="lead-text">
+                أنا <strong>محمد ياسر</strong>، مطور حلول رقمية، وبساعد أصحاب الأعمال على الاستفادة من التكنولوجيا في تطوير مشاريعهم.
+              </p>
+              
+              <p>
+                بشوف إن كل مشروع ليه احتياجات مختلفة، وإن الحل المناسب مش بالضرورة يكون معقد أو مكلف، لكنه لازم يكون عملي وسهل الاستخدام ويحقق الهدف المطلوب.
+              </p>
+
+              <p>
+                علشان كده بهتم بفهم احتياجات كل عميل، واختيار الحل المناسب ليه، وتطويره من مرحلة الفكرة لحد ما يكون جاهز للاستخدام.
+              </p>
+
+              <p class="highlight-text">
+                "هدفي إني أقدّم حلول رقمية تجمع بين الجودة والإبداع والتكلفة المناسبة."
+              </p>
+            </div>
+
+            <!-- Core Working Values Cards -->
+            <div class="about-pillars">
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </div>
+                <div>
+                  <h4>فهم نشاطك أولاً</h4>
+                  <p>التركيز على الهدف التجاري والمستخدم الحقيقي قبل كتابة أي سطر برمجي.</p>
+                </div>
+              </div>
+
+              <div class="pillar-card">
+                <div class="pillar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                </div>
+                <div>
+                  <h4>تطوير ذكي ومرن</h4>
+                  <p>استثمار أدوات الذكاء الاصطناعي والتقنيات الحديثة لتقديم حلول متقنة في وقت قياسي وبأعلى جدوى.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         3. SERVICES SECTION ("الخدمات")
+    ================================================================== -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">ماذا أقدم؟</span>
+          <h2 class="section-title">الخدمات</h2>
+          <p class="section-subtitle">حلول رقمية متكاملة مصممة خصيصًا لتلائم احتياجات الأنشطة التجارية وتدعم نموها</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- 1. تصميم وتطوير المواقع الإلكترونية -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <span class="service-num">01</span>
+            </div>
+            <h3 class="service-title">تصميم وتطوير المواقع الإلكترونية</h3>
+            <p class="service-desc">
+              تصميم وتطوير مواقع احترافية تساعد الشركات والأنشطة التجارية على بناء حضور قوي على الإنترنت وعرض خدماتها بصورة واضحة.
+            </p>
+          </article>
+
+          <!-- 2. صفحات الهبوط – Landing Pages -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                  <polyline points="13 2 13 9 20 9"></polyline>
+                  <path d="M9 15l2 2 4-4"></path>
+                </svg>
+              </div>
+              <span class="service-num">02</span>
+            </div>
+            <h3 class="service-title">صفحات الهبوط – Landing Pages</h3>
+            <p class="service-desc">
+              إنشاء صفحات تسويقية مخصصة لعرض المنتجات والخدمات والعروض، مع التركيز على جذب انتباه الزائر وتشجيعه على اتخاذ إجراء.
+            </p>
+          </article>
+
+          <!-- 3. مواقع عرض المنتجات والخدمات -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <span class="service-num">03</span>
+            </div>
+            <h3 class="service-title">مواقع عرض المنتجات والخدمات</h3>
+            <p class="service-desc">
+              إنشاء واجهات إلكترونية منظمة تساعد الأنشطة التجارية على عرض منتجاتها وخدماتها وتسهيل وصول العملاء إلى المعلومات المطلوبة.
+            </p>
+          </article>
+
+          <!-- 4. المتاجر الإلكترونية -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="20" cy="21" r="1"></circle>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+              </div>
+              <span class="service-num">04</span>
+            </div>
+            <h3 class="service-title">المتاجر الإلكترونية</h3>
+            <p class="service-desc">
+              تطوير متاجر إلكترونية لعرض المنتجات واستقبال الطلبات وتسهيل تجربة الشراء وإدارة المبيعات.
+            </p>
+          </article>
+
+          <!-- 5. مواقع المطاعم والكافيهات -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                  <line x1="6" y1="1" x2="6" y2="4"></line>
+                  <line x1="10" y1="1" x2="10" y2="4"></line>
+                  <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+              </div>
+              <span class="service-num">05</span>
+            </div>
+            <h3 class="service-title">مواقع المطاعم والكافيهات</h3>
+            <p class="service-desc">
+              تصميم مواقع إلكترونية للمطاعم والكافيهات تعرض تفاصيل النشاط والقوائم والخدمات وطرق التواصل والطلب.
+            </p>
+          </article>
+
+          <!-- 6. الأنظمة الرقمية المخصصة للأعمال -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <span class="service-num">06</span>
+            </div>
+            <h3 class="service-title">الأنظمة الرقمية المخصصة للأعمال</h3>
+            <p class="service-desc">
+              تطوير حلول وأنظمة حسب احتياجات النشاط التجاري، مثل إدارة المبيعات والمخزون والعملاء والموردين والحسابات والطلبات.
+            </p>
+          </article>
+
+          <!-- 7. إنتاج الفيديوهات الإعلانية بالذكاء الاصطناعي -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+              </div>
+              <span class="service-num">07</span>
+            </div>
+            <h3 class="service-title">إنتاج الفيديوهات الإعلانية بالذكاء الاصطناعي</h3>
+            <p class="service-desc">
+              إنتاج محتوى إعلاني بصري يساعد الأنشطة التجارية على تقديم منتجاتها وخدماتها بطريقة إبداعية وجذابة.
+            </p>
+          </article>
+
+          <!-- 8. حلول QR Code وNFC -->
+          <article class="service-card reveal">
+            <div class="service-header">
+              <div class="service-icon-box">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                  <path d="M14 14h3v3h-3z"></path>
+                  <path d="M20 14v3"></path>
+                  <path d="M17 20h3"></path>
+                </svg>
+              </div>
+              <span class="service-num">08</span>
+            </div>
+            <h3 class="service-title">حلول QR Code وNFC</h3>
+            <p class="service-desc">
+              تقديم حلول تفاعلية تسهّل وصول العملاء إلى المواقع والمنيوهات والصفحات الرقمية ومعلومات الأنشطة التجارية باستخدام QR Code وتقنية NFC.
+            </p>
+          </article>
+
+          <!-- 9. المنيو الإلكتروني (Important: Must be the final service in displayed order) -->
+          <article class="service-card service-card-featured reveal">
+            <div class="service-header">
+              <div class="service-icon-box featured-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                  <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+              </div>
+              <div class="featured-badge-pill">حل متكامل للمطاعم</div>
+              <span class="service-num">09</span>
+            </div>
+            <h3 class="service-title">المنيو الإلكتروني</h3>
+            <p class="service-desc">
+              تصميم منيو إلكتروني احترافي للمطاعم والكافيهات، يتيح عرض المنتجات والأسعار والتفاصيل، مع إمكانية إضافة الطلبات وطرق التواصل ولوحة تحكم لإدارة محتوى المنيو حسب متطلبات المشروع.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         4. SKILLS & CAPABILITIES SECTION ("مجالات العمل والقدرات")
+    ================================================================== -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">الخبرات والمهارات</span>
+          <h2 class="section-title">مجالات العمل والقدرات</h2>
+          <p class="section-subtitle">إمكانيات واقعية ومهارات متكاملة موجهة لتنفيذ مشاريع أعمال حقيقية</p>
+        </div>
+
+        <div class="skills-categories-grid">
+          <!-- Category 1: Website Development -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <div>
+                <h3 class="category-title">تطوير المواقع الإلكترونية</h3>
+                <span class="category-sub">Website Development</span>
+              </div>
+            </div>
+            <ul class="capability-list">
+              <li>
+                <span class="check-bullet"></span>
+                <span>مواقع الشركات والأنشطة التجارية (Business websites)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>صفحات الهبوط التسويقية (Landing pages)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>مواقع عرض المنتجات والخدمات</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>المتاجر الإلكترونية (E-commerce)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>مواقع المطاعم والكافيهات المتخصصة</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Business Digital Solutions -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+              </div>
+              <div>
+                <h3 class="category-title">الأنظمة الرقمية للأعمال</h3>
+                <span class="category-sub">Business Digital Solutions</span>
+              </div>
+            </div>
+            <ul class="capability-list">
+              <li>
+                <span class="check-bullet"></span>
+                <span>الأنظمة المخصصة لإدارة العمليات</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>حلول إدارة المبيعات والمخزون</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>تنظيم مسارات العمل وتدفق البيانات</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>أدوات رقمية مساعدة للأنشطة التجارية</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Digital Marketing & Interactive Solutions -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 2a10 10 0 0 1 10 10h-10V2z"></path><path d="M2 12a10 10 0 0 1 10-10v10H2z"></path></svg>
+              </div>
+              <div>
+                <h3 class="category-title">التسويق الرقمي والحلول التفاعلية</h3>
+                <span class="category-sub">Marketing & Interactive Solutions</span>
+              </div>
+            </div>
+            <ul class="capability-list">
+              <li>
+                <span class="check-bullet"></span>
+                <span>إنتاج الفيديوهات الإعلانية بالذكاء الاصطناعي</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>حلول الباركود الذكي (QR Code Solutions)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>بطاقات وحلول التواصل اللاتلامسي (NFC Solutions)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>قوائم الطعام والمنيوهات الرقمية التفاعلية</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 4: User Experience & Design -->
+          <div class="skill-category-card reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon></svg>
+              </div>
+              <div>
+                <h3 class="category-title">تجربة المستخدم والتصميم</h3>
+                <span class="category-sub">User Experience & Design</span>
+              </div>
+            </div>
+            <ul class="capability-list">
+              <li>
+                <span class="check-bullet"></span>
+                <span>تصميم متجاوب بالكامل مع كافة الشاشات (Responsive)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>واجهات عربية متقونة الاتجاه (RTL Layouts)</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>هيكلة محتوى واضحة وسهلة التصفح</span>
+              </li>
+              <li>
+                <span class="check-bullet"></span>
+                <span>تجارب استخدام موجهة نحو تحقيق أهداف النشاط</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 5: Development Approach -->
+          <div class="skill-category-card full-width-category reveal">
+            <div class="category-header">
+              <div class="category-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+              </div>
+              <div>
+                <h3 class="category-title">منهجية وأسلوب العمل</h3>
+                <span class="category-sub">Development Approach</span>
+              </div>
+            </div>
+            <div class="approach-grid">
+              <div class="approach-item">
+                <div class="approach-icon">🤖</div>
+                <div>
+                  <strong>التطوير المدعوم بالذكاء الاصطناعي</strong>
+                  <p>توظيف أدوات الذكاء الاصطناعي لتسريع البناء واختبار الكود والوصول لحلول دقيقة بدون هدر للوقت.</p>
+                </div>
+              </div>
+
+              <div class="approach-item">
+                <div class="approach-icon">🎯</div>
+                <div>
+                  <strong>اختيار التقنية الأنسب للمشروع</strong>
+                  <p>تحديد الأدوات والتقنيات المناسبة لحجم ونوع النشاط وميزانيته دون تعقيد غير مبرر.</p>
+                </div>
+              </div>
+
+              <div class="approach-item">
+                <div class="approach-icon">🤝</div>
+                <div>
+                  <strong>بناء حلول عملية لاحتياجات حقيقية</strong>
+                  <p>التركيز الكامل على المنفعة التشغيلية والتجارية التي سيلمسها صاحب العمل وعملاؤه على أرض الواقع.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         5. PROJECTS / PORTFOLIO SECTION ("نماذج من أعمالي")
+    ================================================================== -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">معرض الأعمال</span>
+          <h2 class="section-title">نماذج من أعمالي</h2>
+          <p class="section-subtitle">أمثلة واقعية ونماذج قيد التطوير للحلول الرقمية التي أعمل على تقديمها</p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- =========================================================
+               PROJECT CARD 1: Restaurant Digital Menu Solution
+               EDITABLE PLACEHOLDER: Ready for your actual project details
+          ========================================================== -->
+          <article class="project-card reveal">
+            <div class="project-media-wrapper">
+              <!-- Visual Mockup Placeholder -->
+              <div class="project-preview-box">
+                <div class="preview-mockup-inner">
+                  <svg class="preview-svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+                  <span class="preview-text">منصة منيو إلكتروني تفاعلي</span>
+                </div>
+              </div>
+              <span class="project-status-badge in-progress">قيد التطوير</span>
+            </div>
+
+            <div class="project-body">
+              <span class="project-category">حلول المطاعم والكافيهات</span>
+              <h3 class="project-title">منصة المنيو الرقمي وإدارة الطلبات</h3>
+              <p class="project-desc">
+                حل متكامل للمطاعم يتيح تصفح قائمة الطعام بالصور والأسعار عبر رمز QR مع ربط مباشر بطلب الواتساب وتحديث سلس للأصناف.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">QR Code</span>
+                <span class="tag">منيو تفاعلي</span>
+                <span class="tag">واجهة متجاوبة</span>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-link-placeholder">
+                  <span>تفاصيل المشروع قريبًا</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- =========================================================
+               PROJECT CARD 2: Business Showcase Website
+               EDITABLE PLACEHOLDER: Ready for your actual project details
+          ========================================================== -->
+          <article class="project-card reveal">
+            <div class="project-media-wrapper">
+              <div class="project-preview-box">
+                <div class="preview-mockup-inner">
+                  <svg class="preview-svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                    <line x1="8" y1="21" x2="16" y2="21"></line>
+                    <line x1="12" y1="17" x2="12" y2="21"></line>
+                  </svg>
+                  <span class="preview-text">موقع تعريفي لنشاط تجاري</span>
+                </div>
+              </div>
+              <span class="project-status-badge in-progress">قيد التطوير</span>
+            </div>
+
+            <div class="project-body">
+              <span class="project-category">مواقع الأعمال</span>
+              <h3 class="project-title">موقع تعريفي وخدمي متكامل</h3>
+              <p class="project-desc">
+                تصميم موقع إلكتروني احترافي لعرض خدمات ونشاط الشركة مع صفحات مخصصة للخدمات، ونموذج تواصل سريع، وتوافق تام مع محركات البحث.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">موقع أعمال</span>
+                <span class="tag">Landing Page</span>
+                <span class="tag">SEO Friendly</span>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-link-placeholder">
+                  <span>تفاصيل المشروع قريبًا</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <!-- =========================================================
+               PROJECT CARD 3: Custom Business System / Inventory
+               EDITABLE PLACEHOLDER: Ready for your actual project details
+          ========================================================== -->
+          <article class="project-card reveal">
+            <div class="project-media-wrapper">
+              <div class="project-preview-box">
+                <div class="preview-mockup-inner">
+                  <svg class="preview-svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span class="preview-text">نظام إدارة مبيعات وطلبات</span>
+                </div>
+              </div>
+              <span class="project-status-badge in-progress">قيد التطوير</span>
+            </div>
+
+            <div class="project-body">
+              <span class="project-category">أنظمة الأعمال المخصصة</span>
+              <h3 class="project-title">نظام متابعة الطلبات والمبيعات</h3>
+              <p class="project-desc">
+                نظام عملي مبسط لإدارة العمليات اليومية للنشاط التجاري، تسجيل حركة المبيعات، ومتابعة فواتير العملاء بدقة وسهولة.
+              </p>
+
+              <div class="project-tags">
+                <span class="tag">إدارة مبيعات</span>
+                <span class="tag">حلول مخصصة</span>
+                <span class="tag">لوحة تحكم</span>
+              </div>
+
+              <div class="project-footer">
+                <span class="project-link-placeholder">
+                  <span>تفاصيل المشروع قريبًا</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Note about upcoming projects -->
+        <div class="projects-note reveal">
+          <div class="note-box">
+            <span class="note-icon">📌</span>
+            <p>
+              يتم العمل حاليًا على توثيق صور ونماذج حية للمشاريع قيد التطوير، وسيتم إضافتها وتحديث الروابط فور اكتمالها وتجهيزها للعرض العام.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         6. HOW I WORK SECTION ("رحلة العمل")
+    ================================================================== -->
+    <section class="section how-i-work-section" id="how-i-work">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">خطوات التنفيذ</span>
+          <h2 class="section-title">رحلة العمل</h2>
+          <p class="section-subtitle">منهجية واضحة ومحددة تضمن تحويل فكرتك إلى منتج رقمي متكامل بأعلى فاعلية</p>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-track" aria-hidden="true"></div>
+
+          <!-- Step 1 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">01</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">فهم الاحتياج</h3>
+              <p class="step-desc">
+                أبدأ بالتعرف على طبيعة النشاط التجاري وفهم المشكلة أو الفكرة التي يريد العميل تنفيذها.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">02</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">تحليل الفكرة</h3>
+              <p class="step-desc">
+                أحلل المتطلبات وأحدد الاحتياجات الأساسية وأفهم الهدف المطلوب من المشروع.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">03</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">اقتراح الحل</h3>
+              <p class="step-desc">
+                أقترح الحل الرقمي المناسب لطبيعة النشاط واحتياجاته وميزانيته.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">04</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">التصميم والتطوير</h3>
+              <p class="step-desc">
+                أحوّل الفكرة إلى تصميم واضح وتجربة استخدام سهلة، ثم أبدأ في تطوير الحل.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">05</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">الاختبار والتجهيز</h3>
+              <p class="step-desc">
+                أراجع المشروع وأختبر الوظائف الأساسية وتجربة الاستخدام قبل النشر.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">06</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">النشر والتسليم</h3>
+              <p class="step-desc">
+                أجهز المشروع للنشر وأساعد العميل على فهم طريقة الاستخدام.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 7 -->
+          <div class="timeline-item reveal">
+            <div class="timeline-marker">
+              <span class="step-num">07</span>
+            </div>
+            <div class="timeline-content">
+              <h3 class="step-title">المتابعة والدعم</h3>
+              <p class="step-desc">
+                أقدم التعديلات والدعم والصيانة والتحديثات حسب الاتفاق واحتياجات المشروع.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         7. WHY WORK WITH ME SECTION ("لماذا تعمل معي؟")
+    ================================================================== -->
+    <section class="section why-me-section" id="why-me">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">قيم وأولويات</span>
+          <h2 class="section-title">لماذا تعمل معي؟</h2>
+          <p class="section-subtitle">مبادئ حقيقية ألتزم بها في كل مشروع لضمان نجاح الحل الرقمي وراحة العميل</p>
+        </div>
+
+        <div class="values-grid">
+          <!-- Value 1 -->
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="value-title">فهم احتياجات العميل</h3>
+            <p class="value-desc">الاستماع الجيد والتأكد من وضوح كافة التفاصيل قبل البدء في التنفيذ الفعلي.</p>
+          </div>
+
+          <!-- Value 2 -->
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="value-title">اختيار الحل المناسب</h3>
+            <p class="value-desc">تقديم الحل العملي والمباشر بدلًا من تقديم حلول معقدة أو مكلفة دون داعٍ.</p>
+          </div>
+
+          <!-- Value 3 -->
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="value-title">التصميم وسهولة الاستخدام</h3>
+            <p class="value-desc">الاهتمام بجمال الواجهات وجعل تجربة التصفح بسيطة ومريحة لكل مستخدم.</p>
+          </div>
+
+          <!-- Value 4 -->
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="value-title">تحويل الأفكار لمنتجات حقيقية</h3>
+            <p class="value-desc">الانتقال بالمشروع من مجرد فكرة في الذهن إلى نظام أو موقع يعمل على أرض الواقع.</p>
+          </div>
+
+          <!-- Value 5 -->
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="value-title">الاهتمام بالتفاصيل والجودة</h3>
+            <p class="value-desc">العناية بكل عنصر صغير في المشروع ومراعاة سرعة الأداء وجودة الإخراج.</p>
+          </div>
+
+          <!-- Value 6 -->
+          <div class="value-card reveal">
+            <div class="value-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <h3 class="value-title">مراعاة الميزانية وطبيعة النشاط</h3>
+            <p class="value-desc">تقديم حلول متوازنة تحقق أعلى مردود وتراعي الإمكانيات المادية للنشاط.</p>
+          </div>
+
+          <!-- Value 7 -->
+          <div class="value-card full-value-card reveal">
+            <div class="value-icon featured-check">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <div>
+              <h3 class="value-title">شريك نجاح حقيقي</h3>
+              <p class="value-desc">التعامل مع العميل كشريك في الوصول إلى النتيجة المطلوبة، مع التواصل المستمر والدائم.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         8. CAREER DIRECTION SECTION ("رؤيتي في تطوير الأعمال")
+    ================================================================== -->
+    <section class="section vision-section" id="vision">
+      <div class="container">
+        <div class="vision-card reveal">
+          <div class="vision-quote-icon" aria-hidden="true">“</div>
+          <span class="vision-tag">توجهي المهني</span>
+          <h2 class="vision-title">رؤيتي في تطوير الأعمال</h2>
+          <blockquote class="vision-statement">
+            "أسعى إلى تطوير حلول رقمية تساعد أصحاب الأعمال على الاستفادة من التكنولوجيا بصورة عملية، وتسهّل إدارة مشاريعهم، وتحسّن تجربة عملائهم، مع الاستمرار في تعلم التقنيات الحديثة وتقديم حلول أكثر جودة وفاعلية."
+          </blockquote>
+          <div class="vision-author">
+            <strong>محمد ياسر</strong>
+            <span>مطور حلول رقمية للأعمال</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =================================================================
+         9. CONTACT SECTION ("خلينا نبدأ مشروعك")
+    ================================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">تواصل مباشر</span>
+          <h2 class="section-title">خلينا نبدأ مشروعك</h2>
+          <p class="section-subtitle">عندك فكرة أو محتاج تطور مشروعك؟ احكيلي عن احتياجك، ونشوف مع بعض الحل المناسب ونحوّله لخطوة عملية.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Social Links & Friendly Info -->
+          <div class="contact-info-card reveal">
+            <h3 class="info-card-title">تواصل مباشر ومستمر</h3>
+            <p class="info-card-text">
+              يسعدني دائمًا التحدث عن أفكار المشاريع ومناقشة التحديات التي تواجه نشاطك التجاري، لإيجاد الحل الرقمي الأنسب.
+            </p>
+
+            <div class="social-channels">
+              <h4 class="channels-heading">طرق التواصل وقنواتي الرسمية:</h4>
+
+              <!-- WhatsApp Link -->
+              <a href="https://wa.me/201142576116" target="_blank" rel="noopener noreferrer" class="social-channel-item wa-channel">
+                <div class="social-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.939l-1.664 6.085 6.257-1.64c1.704.933 3.659 1.464 5.743 1.464 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm0 21.818c-1.857 0-3.585-.504-5.069-1.383l-.364-.216-3.719.976.992-3.626-.237-.377c-.966-1.536-1.476-3.328-1.476-5.188 0-5.411 4.402-9.818 9.873-9.818 5.47 0 9.873 4.407 9.873 9.818 0 5.411-4.403 9.814-9.873 9.814z"/>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">واتساب • WhatsApp</span>
+                  <span class="channel-handle" dir="ltr">01142576116</span>
+                </div>
+                <span class="channel-arrow">←</span>
+              </a>
+
+              <!-- Facebook Link -->
+              <a href="https://www.facebook.com/share/14ysK7wdhd9/" target="_blank" rel="noopener noreferrer" class="social-channel-item fb-channel">
+                <div class="social-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">فيسبوك • Facebook</span>
+                  <span class="channel-handle">صفحتي الرسمية</span>
+                </div>
+                <span class="channel-arrow">←</span>
+              </a>
+
+              <!-- Instagram Link -->
+              <a href="https://www.instagram.com/mahamadyasr?vrfl=bGRuZWsxN2J2anF4" target="_blank" rel="noopener noreferrer" class="social-channel-item ig-channel">
+                <div class="social-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">إنستجرام • Instagram</span>
+                  <span class="channel-handle">@mahamadyasr</span>
+                </div>
+                <span class="channel-arrow">←</span>
+              </a>
+
+              <!-- Email Link -->
+              <a href="mailto:yasr34438@gmail.com" class="social-channel-item email-channel">
+                <div class="social-icon-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="channel-info">
+                  <span class="channel-name">البريد الإلكتروني • Email</span>
+                  <span class="channel-handle">yasr34438@gmail.com</span>
+                </div>
+                <span class="channel-arrow">←</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Contact Form -->
+          <div class="contact-form-card reveal">
+            <form id="contact-form" class="contact-form" action="https://formspree.io/f/xrpqpklw" method="POST" novalidate>
+              <input type="hidden" name="_subject" value="رسالة جديدة من موقع البورتفوليو - محمد ياسر">
+              <div class="form-group">
+                <label for="client-name" class="form-label">الاسم الكريم <span class="required">*</span></label>
+                <input type="text" id="client-name" name="name" class="form-input" placeholder="مثال: أحمد عبد الله" required autocomplete="name">
+                <span class="field-error" id="name-error">يرجى كتابة الاسم الكريم</span>
+              </div>
+
+              <div class="form-group">
+                <label for="client-contact" class="form-label">البريد الإلكتروني أو رقم الهاتف <span class="required">*</span></label>
+                <input type="text" id="client-contact" name="contact" class="form-input" placeholder="مثال: 01xxxxxxxxx أو yourname@example.com" required>
+                <span class="field-error" id="contact-error">يرجى كتابة وسيلة تواصل صحيحة</span>
+              </div>
+
+              <div class="form-group">
+                <label for="project-type" class="form-label">نوع الحل أو المشروع المطلوب</label>
+                <div class="select-wrapper">
+                  <select id="project-type" name="project_type" class="form-select">
+                    <option value="" selected>اختر نوع المشروع (اختياري)</option>
+                    <option value="website">تصميم وتطوير موقع إلكتروني</option>
+                    <option value="landing_page">صفحة هبوط تسويقية (Landing Page)</option>
+                    <option value="restaurant_menu">منيو إلكتروني أو موقع لمطعم / كافيه</option>
+                    <option value="ecommerce">متجر إلكتروني</option>
+                    <option value="business_system">نظام رقمي مخصص لإدارة الأعمال</option>
+                    <option value="ai_video">فيديو إعلاني بالذكاء الاصطناعي</option>
+                    <option value="qr_nfc">حلول QR Code وNFC</option>
+                    <option value="other">استشارة أو فكرة أخرى</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="client-message" class="form-label">تفاصيل الفكرة أو الاحتياج <span class="required">*</span></label>
+                <textarea id="client-message" name="message" class="form-textarea" rows="4" placeholder="احكيلي باختصار عن فكرتك أو التحدي اللي حابب نحله في مشروعك..." required></textarea>
+                <span class="field-error" id="message-error">يرجى توضيح تفاصيل الفكرة أو الرسالة</span>
+              </div>
+
+              <!-- Frontend Notification Banner -->
+              <div id="form-alert" class="form-alert" role="alert" style="display: none;"></div>
+
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-block">
+                <span class="btn-text">إرسال تفاصيل الفكرة</span>
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+
+              <p class="form-disclaimer">
+                <span>🔒</span> بياناتك تستخدم فقط للتواصل المباشر بشأن استفسارك ومناقشة تفاصيل المشروع.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =================================================================
+       10. FOOTER
+  ================================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-mark">MY</span>
+            <span class="footer-name">محمد ياسر | Mohamed Yasser</span>
+          </div>
+          <p class="footer-role">مطور حلول رقمية للأعمال • Digital Solutions Developer</p>
+          <p class="footer-tagline">"حلول رقمية عملية تساعد أعمالك على التطور."</p>
+        </div>
+
+        <div class="footer-social-links">
+          <a href="https://wa.me/201142576116" target="_blank" rel="noopener noreferrer" class="footer-social-btn footer-wa-btn" aria-label="مراسلة عبر واتساب">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.57 4.185 1.564 5.939l-1.664 6.085 6.257-1.64c1.704.933 3.659 1.464 5.743 1.464 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12zm0 21.818c-1.857 0-3.585-.504-5.069-1.383l-.364-.216-3.719.976.992-3.626-.237-.377c-.966-1.536-1.476-3.328-1.476-5.188 0-5.411 4.402-9.818 9.873-9.818 5.47 0 9.873 4.407 9.873 9.818 0 5.411-4.403 9.814-9.873 9.814z"/>
+            </svg>
+            <span>واتساب</span>
+          </a>
+
+          <a href="https://www.facebook.com/share/14ysK7wdhd9/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="صفحة فيسبوك">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+            <span>فيسبوك</span>
+          </a>
+
+          <a href="https://www.instagram.com/mahamadyasr?vrfl=bGRuZWsxN2J2anF4" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="حساب إنستجرام">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>إنستجرام</span>
+          </a>
+
+          <a href="mailto:yasr34438@gmail.com" class="footer-social-btn" aria-label="إرسال بريد إلكتروني">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>البريد الإلكتروني</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          جميع الحقوق محفوظة &copy; <span id="current-year">2026</span> <strong>محمد ياسر</strong> • مطور حلول رقمية.
+        </p>
+        
+        <!-- Back to Top Button -->
+        <a href="#hero" class="back-to-top-btn" id="back-to-top" aria-label="العودة لأعلى الصفحة" title="العودة لأعلى">
+          <span>العودة لأعلى</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js"></script>
+</body>
+</html>
