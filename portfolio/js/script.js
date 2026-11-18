@@ -1,355 +1,371 @@
 /**
- * ==============================================================================
- * MOHAMED YASSER - PORTFOLIO INTERACTIVITY SCRIPT
- * Digital Solutions Developer | مطور حلول رقمية للأعمال
- * Vanilla JavaScript (Zero Dependencies)
- * ==============================================================================
+ * ============================================================================
+ * MOHAMED YASSER - PORTFOLIO v2 SCRIPT (Vanilla JS, بدون مكتبات)
+ * ----------------------------------------------------------------------------
+ * 1. اللغة (عربي / English)      6. حركة الصورة والتحريك
+ * 2. الوضع الداكن / الفاتح       7. خطوات "رحلة العمل"
+ * 3. قائمة الموبايل              8. كروت المشاريع
+ * 4. الأقسام + الشريط الجانبي    9. نموذج التواصل
+ * 5. Reveal عند السكرول          10. الأزرار العائمة
+ * ============================================================================
  */
-
-document.addEventListener('DOMContentLoaded', () => {
+(function () {
   'use strict';
 
-  /* ----------------------------------------------------------------------------
-   * 1. THEME SWITCHER (DARK / LIGHT MODE)
-   * Default theme is dark as requested. Preference is stored in localStorage.
-   * -------------------------------------------------------------------------- */
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const rootElement = document.documentElement;
-  const THEME_STORAGE_KEY = 'mohamed_yasser_portfolio_theme';
+  var D = document, root = D.documentElement;
+  var $ = function (s, c) { return (c || D).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || D).querySelectorAll(s)); };
+  var KEY_THEME = 'mohamed_yasser_portfolio_theme';
+  var KEY_LANG = 'mohamed_yasser_portfolio_lang';
+  var WA_NUMBER = '201142576116';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  var I = window.I18N || { en: {}, ar: {} };
+  var lang = root.lang === 'en' ? 'en' : 'ar';
 
-  // Initialize theme: check localStorage, otherwise default to 'dark'
-  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-  if (savedTheme === 'light' || savedTheme === 'dark') {
-    rootElement.setAttribute('data-theme', savedTheme);
-  } else {
-    // Default to dark mode
-    rootElement.setAttribute('data-theme', 'dark');
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (m) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]; }); }
+
+  /** نص لغة حالية للمفاتيح المستخدمة داخل JS */
+  function tr(key, vars) {
+    var s = (I[lang] && I[lang][key]);
+    if (s === undefined) s = (I.ar && I.ar[key]);
+    if (s === undefined) s = key;
+    if (vars) s = s.replace(/\{(\w+)\}/g, function (m, k) { return vars[k] !== undefined ? vars[k] : m; });
+    return s;
   }
 
-  // Toggle theme on button click
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = rootElement.getAttribute('data-theme') || 'dark';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      rootElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem(THEME_STORAGE_KEY, newTheme);
-    });
-  }
+  /* ------------------------------------------------------------------------
+   * 0. Marquee: نكرر القائمة ليدور الشريط بلا انقطاع
+   * ---------------------------------------------------------------------- */
+  (function marquee() {
+    var list = $('.marquee-list'); if (!list) return;
+    for (var i = 0; i < 3; i++) {
+      var c = list.cloneNode(true); c.setAttribute('aria-hidden', 'true');
+      list.parentNode.appendChild(c);
+    }
+  })();
 
-  /* ----------------------------------------------------------------------------
-   * 2. MOBILE NAVIGATION DRAWER & OVERLAY
-   * Smooth toggle for mobile viewports with accessible ARIA states
-   * -------------------------------------------------------------------------- */
-  const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
-  const mobileNav = document.getElementById('mobile-nav');
-  const navOverlay = document.getElementById('nav-overlay');
-  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  /* ------------------------------------------------------------------------
+   * 1. اللغة
+   * ---------------------------------------------------------------------- */
+  function applyLang(next) {
+    lang = next;
+    root.lang = next;
+    root.dir = next === 'en' ? 'ltr' : 'rtl';
+    var EN = I.en;
 
-  const openMobileMenu = () => {
-    mobileToggleBtn.classList.add('open');
-    mobileToggleBtn.setAttribute('aria-expanded', 'true');
-    mobileNav.classList.add('open');
-    mobileNav.setAttribute('aria-hidden', 'false');
-    navOverlay.classList.add('open');
-    navOverlay.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  };
-
-  const closeMobileMenu = () => {
-    mobileToggleBtn.classList.remove('open');
-    mobileToggleBtn.setAttribute('aria-expanded', 'false');
-    mobileNav.classList.remove('open');
-    mobileNav.setAttribute('aria-hidden', 'true');
-    navOverlay.classList.remove('open');
-    navOverlay.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  if (mobileToggleBtn && mobileNav && navOverlay) {
-    mobileToggleBtn.addEventListener('click', () => {
-      const isOpen = mobileToggleBtn.classList.contains('open');
-      if (isOpen) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
+    $$('[data-i18n]').forEach(function (el) {
+      if (el.dataset.ar === undefined) el.dataset.ar = el.innerHTML;
+      var k = el.getAttribute('data-i18n');
+      el.innerHTML = (next === 'en' && EN[k] !== undefined) ? EN[k] : el.dataset.ar;
     });
 
-    // Close when clicking overlay backdrop
-    navOverlay.addEventListener('click', closeMobileMenu);
-
-    // Close when pressing Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-        closeMobileMenu();
-      }
-    });
-
-    // Close drawer when any mobile nav link is clicked
-    mobileNavLinks.forEach((link) => {
-      link.addEventListener('click', closeMobileMenu);
-    });
-  }
-
-  /* ----------------------------------------------------------------------------
-   * 3. ACTIVE NAVIGATION LINK ON SCROLL
-   * Highlights current section link as the user scrolls through the page
-   * -------------------------------------------------------------------------- */
-  const sections = document.querySelectorAll('section[id]');
-  const desktopNavLinks = document.querySelectorAll('.nav-desktop .nav-link');
-
-  const updateActiveNavLink = () => {
-    const scrollPosition = window.scrollY + 180; // Offset for header height
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.offsetHeight;
-      const sectionId = section.getAttribute('id');
-
-      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-        desktopNavLinks.forEach((link) => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-
-        mobileNavLinks.forEach((link) => {
-          if (link.getAttribute('href') === `#${sectionId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
-    });
-  };
-
-  window.addEventListener('scroll', updateActiveNavLink, { passive: true });
-  updateActiveNavLink(); // Initial run
-
-  /* ----------------------------------------------------------------------------
-   * 4. SCROLL REVEAL ANIMATIONS (INTERSECTION OBSERVER)
-   * Elements with class .reveal smoothly fade and slide in when entering viewport
-   * -------------------------------------------------------------------------- */
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const revealElements = document.querySelectorAll('.reveal');
-
-  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('revealed');
-            observer.unobserve(entry.target); // Trigger once for performance
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
-      }
-    );
-
-    revealElements.forEach((el) => revealObserver.observe(el));
-  } else {
-    // If reduced motion or observer not supported, make everything visible immediately
-    revealElements.forEach((el) => el.classList.add('revealed'));
-  }
-
-  /* ----------------------------------------------------------------------------
-   * 5. DYNAMIC FOOTER CURRENT YEAR
-   * Automatically sets current year
-   * -------------------------------------------------------------------------- */
-  const yearElement = document.getElementById('current-year');
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-
-  /* ----------------------------------------------------------------------------
-   * 6. CONTACT FORM HANDLING & VALIDATION (FRONTEND)
-   * Validates user inputs cleanly and provides clear feedback.
-   * Ready to be plugged into EmailJS, Formspree, WhatsApp, or backend API.
-   * -------------------------------------------------------------------------- */
-  const contactForm = document.getElementById('contact-form');
-  const formAlert = document.getElementById('form-alert');
-  const nameInput = document.getElementById('client-name');
-  const contactInput = document.getElementById('client-contact');
-  const messageInput = document.getElementById('client-message');
-  const projectTypeSelect = document.getElementById('project-type');
-  const submitBtn = document.getElementById('submit-btn');
-
-  // Input error element getters
-  const nameError = document.getElementById('name-error');
-  const contactError = document.getElementById('contact-error');
-  const messageError = document.getElementById('message-error');
-
-  const clearFormErrors = () => {
-    [nameInput, contactInput, messageInput].forEach((input) => {
-      input.classList.remove('has-error');
-    });
-    [nameError, contactError, messageError].forEach((error) => {
-      error.classList.remove('active');
-    });
-    formAlert.style.display = 'none';
-    formAlert.className = 'form-alert';
-    formAlert.textContent = '';
-  };
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      clearFormErrors();
-
-      let hasError = false;
-
-      // Validate Name (minimum 2 characters)
-      const nameVal = nameInput.value.trim();
-      if (!nameVal || nameVal.length < 2) {
-        nameInput.classList.add('has-error');
-        nameError.classList.add('active');
-        hasError = true;
-      }
-
-      // Validate Contact (Email or Egyptian/International phone number)
-      const contactVal = contactInput.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-      const isContactValid = emailRegex.test(contactVal) || (contactVal.length >= 8 && /^[0-9+\s-]+$/.test(contactVal));
-
-      if (!contactVal || !isContactValid) {
-        contactInput.classList.add('has-error');
-        contactError.classList.add('active');
-        hasError = true;
-      }
-
-      // Validate Message (minimum 8 characters)
-      const messageVal = messageInput.value.trim();
-      if (!messageVal || messageVal.length < 8) {
-        messageInput.classList.add('has-error');
-        messageError.classList.add('active');
-        hasError = true;
-      }
-
-      if (hasError) {
-        return;
-      }
-
-      /* ------------------------------------------------------------------------
-       * HOW TO CONNECT BACKEND / WHATSAPP / FORMSPREE:
-       * 
-       * Option A (Direct WhatsApp Forwarding):
-       *   const phone = "201XXXXXXXXX"; // Mohamed Yasser WhatsApp number
-       *   const waText = `مرحبًا محمد، أنا ${encodeURIComponent(nameVal)}، مهتم بـ: ${encodeURIComponent(projectTypeSelect.value)}.%0Aالتفاصيل: ${encodeURIComponent(messageVal)}`;
-       *   window.open(`https://wa.me/${phone}?text=${waText}`, '_blank');
-       *
-       * Option B (Formspree or Custom API):
-       *   fetch('https://formspree.io/f/YOUR_FORM_ID', {
-       *     method: 'POST',
-       *     headers: { 'Content-Type': 'application/json' },
-       *     body: JSON.stringify({ name: nameVal, contact: contactVal, project: projectTypeSelect.value, message: messageVal })
-       *   });
-       * ---------------------------------------------------------------------- */
-
-      // Construct WhatsApp message pre-fill link for Mohamed Yasser (01142576116)
-      const projectTypeName = projectTypeSelect.options[projectTypeSelect.selectedIndex]?.text || 'غير محدد';
-      const waText = `مرحبًا محمد، أنا ${nameVal}.%0A📱 وسيلة التواصل: ${contactVal}%0A🎯 نوع المشروع: ${projectTypeName}%0A📝 تفاصيل الفكرة:%0A${messageVal}`;
-      const waUrl = `https://wa.me/201142576116?text=${waText}`;
-
-      // Display pleasant instant confirmation to user
-      const originalBtnHTML = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>جاري المعالجة...</span>`;
-
-      // Send form data to Formspree endpoint
-      const formData = new FormData(contactForm);
-
-      fetch('https://formspree.io/f/xrpqpklw', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
-      .then((response) => {
-        formAlert.style.display = 'block';
-        if (response.ok) {
-          formAlert.className = 'form-alert success';
-          formAlert.innerHTML = `
-            <strong>تم إرسال رسالتك وتفاصيل فكرتك بنجاح يا ${escapeHtml(nameVal)}! ✨</strong><br>
-            <p style="margin: 0.5rem 0;">وصلت رسالتك مباشرة إلى بريدي الإلكتروني. سأقوم بمراجعتها والتواصل معك في أقرب وقت.</p>
-            <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.5rem; margin-top:0.6rem; padding:0.55rem 1.1rem; font-size:0.88rem; background-color:#25D366; border-color:#25D366; color:#ffffff;">
-              <span>أو تواصل معي على واتساب مباشرة الآن 💬</span>
-            </a>
-          `;
-          contactForm.reset();
-        } else {
-          throw new Error('Formspree error');
-        }
-      })
-      .catch(() => {
-        // Fallback in case of network issue
-        formAlert.style.display = 'block';
-        formAlert.className = 'form-alert success';
-        formAlert.innerHTML = `
-          <strong>شكرًا لتواصلك يا ${escapeHtml(nameVal)}! ✨</strong><br>
-          <p style="margin: 0.5rem 0;">لتأكيد وصول رسالتك بأسرع وقت، يمكنك إرسالها مباشرة عبر واتساب:</p>
-          <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex; align-items:center; gap:0.5rem; margin-top:0.6rem; padding:0.55rem 1.1rem; font-size:0.88rem; background-color:#25D366; border-color:#25D366; color:#ffffff;">
-            <span>إرسال تفاصيل الفكرة عبر واتساب 💬</span>
-          </a>
-        `;
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = originalBtnHTML;
-
-        // Auto hide success banner after 14 seconds
-        setTimeout(() => {
-          formAlert.style.display = 'none';
-        }, 14000);
+    $$('[data-i18n-attr]').forEach(function (el) {
+      el.getAttribute('data-i18n-attr').split(';').forEach(function (pair) {
+        var parts = pair.split(':'), attr = parts[0].trim(), key = parts[1].trim();
+        var store_k = 'ar_' + attr.replace(/-/g, '_');
+        if (el.dataset[store_k] === undefined) el.dataset[store_k] = el.getAttribute(attr) || '';
+        el.setAttribute(attr, (next === 'en' && EN[key] !== undefined) ? EN[key] : el.dataset[store_k]);
       });
     });
 
-    // Clear individual field errors upon user typing
-    [nameInput, contactInput, messageInput].forEach((input) => {
-      input.addEventListener('input', () => {
-        input.classList.remove('has-error');
-        const err = input.parentElement.querySelector('.field-error');
-        if (err) err.classList.remove('active');
-      });
-    });
+    D.title = tr('meta.title');
+    var md = $('meta[name="description"]'); if (md) md.setAttribute('content', tr('meta.desc'));
+    var ogt = $('meta[property="og:title"]'); if (ogt) ogt.setAttribute('content', tr('meta.title'));
+    var ogl = $('meta[property="og:locale"]'); if (ogl) ogl.setAttribute('content', next === 'en' ? 'en_US' : 'ar_EG');
+
+    var waFab = $('#fab-wa');
+    if (waFab) waFab.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(tr('wa.default'));
+
+    var y = $('#current-year'); if (y) y.textContent = new Date().getFullYear();
+    store(KEY_LANG, next);
+    renderProjects();
+    layoutSteps();
   }
 
-  // Basic HTML entity escaping for user input display
-  function escapeHtml(string) {
-    const div = document.createElement('div');
-    div.innerText = string;
-    return div.innerHTML;
+  var langBtn = $('#lang-toggle');
+  if (langBtn) langBtn.addEventListener('click', function () { applyLang(lang === 'ar' ? 'en' : 'ar'); });
+
+  /* ------------------------------------------------------------------------
+   * 2. الوضع الداكن / الفاتح (دائرة تتسع من الزر)
+   * ---------------------------------------------------------------------- */
+  function setTheme(t) {
+    root.setAttribute('data-theme', t);
+    store(KEY_THEME, t);
+    var m = $('meta[name="theme-color"]'); if (m) m.setAttribute('content', t === 'light' ? '#F2F9FA' : '#051A21');
   }
-
-  /* ----------------------------------------------------------------------------
-   * 7. SMOOTH SCROLLING FOR INTERNAL LINKS (ACCESSIBILITY COMPLIANT)
-   * -------------------------------------------------------------------------- */
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '') return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        const headerOffset = 70;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: prefersReducedMotion ? 'auto' : 'smooth'
-        });
-      }
-    });
+  var themeBtn = $('#theme-toggle');
+  setTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    if (!D.startViewTransition || reduced) { setTheme(next); return; }
+    var r = themeBtn.getBoundingClientRect();
+    var x = r.left + r.width / 2, y = r.top + r.height / 2;
+    var radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    var vt = D.startViewTransition(function () { setTheme(next); });
+    vt.ready.then(function () {
+      root.animate(
+        { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] },
+        { duration: 750, easing: 'cubic-bezier(.16,1,.3,1)', pseudoElement: '::view-transition-new(root)' }
+      );
+    }).catch(function () {});
   });
-});
+
+  /* ------------------------------------------------------------------------
+   * 3. قائمة الموبايل
+   * ---------------------------------------------------------------------- */
+  var menuBtn = $('#menu-toggle'), menu = $('#mobile-menu');
+  function setMenu(open) {
+    if (!menuBtn || !menu) return;
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', String(!open));
+    D.body.classList.toggle('menu-open', open);
+  }
+  if (menuBtn && menu) {
+    menuBtn.addEventListener('click', function () { setMenu(menuBtn.getAttribute('aria-expanded') !== 'true'); });
+    $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+    D.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+    window.addEventListener('resize', function () { if (innerWidth > 960) setMenu(false); });
+  }
+
+  /* ------------------------------------------------------------------------
+   * 4. القسم الحالي + شريط التقدم + الشريط الجانبي
+   * ---------------------------------------------------------------------- */
+  var sectionIds = ['hero', 'about', 'services', 'skills', 'projects', 'how-i-work', 'why-me', 'contact'];
+  var navLinks = $$('.nav-link, .m-link, .rail a');
+  function setActive(id) {
+    navLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+  }
+  if ('IntersectionObserver' in window) {
+    var secObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) setActive(en.target.id); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sectionIds.forEach(function (id) { var el = D.getElementById(id); if (el) secObs.observe(el); });
+  }
+  setActive('hero');
+
+  var progFill = $('#progress-fill'), rail = $('#rail'), ticking = false;
+  function onScroll() {
+    ticking = false;
+    var max = D.documentElement.scrollHeight - innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+    if (progFill) progFill.style.setProperty('--sp', p.toFixed(4));
+    if (rail) rail.style.setProperty('--rp', p.toFixed(4));
+    updateSteps();
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+
+  /* ------------------------------------------------------------------------
+   * 5. Reveal عند السكرول (مع تأخير متدرج بين الإخوة)
+   * ---------------------------------------------------------------------- */
+  var revealObs = ('IntersectionObserver' in window && !reduced) ? new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }) : null;
+
+  function observeReveals(scope) {
+    var groups = new Map();
+    $$('.reveal:not(.in)', scope).forEach(function (el) {
+      if (el.__seen) return; el.__seen = true;
+      var n = groups.get(el.parentNode) || 0; groups.set(el.parentNode, n + 1);
+      el.style.setProperty('--rd', Math.min(n, 5) * 0.08 + 's');
+      if (revealObs) revealObs.observe(el); else el.classList.add('in');
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+   * 6. حركة الدخول + ميل الصورة + إضاءة الكروت
+   * ---------------------------------------------------------------------- */
+  var fontsReady = (D.fonts && D.fonts.ready) ? D.fonts.ready : Promise.resolve();
+  Promise.race([fontsReady, new Promise(function (r) { setTimeout(r, 1200); })]).then(function () {
+    requestAnimationFrame(function () { root.classList.add('ready'); });
+  });
+
+  var stage = $('#stage');
+  if (stage && finePointer && !reduced) {
+    var vis = stage.parentNode;
+    vis.addEventListener('pointermove', function (e) {
+      var r = stage.getBoundingClientRect();
+      var x = ((e.clientX - r.left) / r.width - 0.5) * 2;
+      var y = ((e.clientY - r.top) / r.height - 0.5) * 2;
+      x = Math.max(-1.2, Math.min(1.2, x)); y = Math.max(-1.2, Math.min(1.2, y));
+      stage.style.setProperty('--ry', (x * 7).toFixed(2) + 'deg');
+      stage.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
+      stage.style.setProperty('--tx', (x * 14).toFixed(1) + 'px');
+      stage.style.setProperty('--ty', (y * 14).toFixed(1) + 'px');
+    });
+    vis.addEventListener('pointerleave', function () {
+      ['--ry', '--rx', '--tx', '--ty'].forEach(function (p) { stage.style.removeProperty(p); });
+    });
+  }
+
+  D.addEventListener('pointermove', function (e) {
+    var el = e.target.closest && e.target.closest('.spot');
+    if (!el) return;
+    var r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', (e.clientX - r.left + 20) + 'px');
+    el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }, { passive: true });
+
+  /* ------------------------------------------------------------------------
+   * 7. رحلة العمل: الخط يُرسم مع السكرول والخطوات تُضاء
+   * ---------------------------------------------------------------------- */
+  var stepsEl = $('#steps');
+  function layoutSteps() {
+    if (!stepsEl) return;
+    var nums = $$('.step-num', stepsEl); if (nums.length < 2) return;
+    var a = nums[0].getBoundingClientRect(), b = nums[nums.length - 1].getBoundingClientRect();
+    stepsEl.style.setProperty('--lh', Math.max(0, b.top - a.top) + 'px');
+    updateSteps();
+  }
+  function updateSteps() {
+    if (!stepsEl) return;
+    var nums = $$('.step-num', stepsEl); if (nums.length < 2) return;
+    var line = innerHeight * 0.62;
+    var first = nums[0].getBoundingClientRect(), last = nums[nums.length - 1].getBoundingClientRect();
+    var span = last.top - first.top || 1;
+    var p = Math.min(1, Math.max(0, (line - first.top - 26) / span));
+    stepsEl.style.setProperty('--p', p.toFixed(4));
+    $$('.step', stepsEl).forEach(function (st, i) {
+      st.classList.toggle('on', nums[i].getBoundingClientRect().top < line);
+    });
+  }
+  window.addEventListener('resize', layoutSteps);
+
+  /* ------------------------------------------------------------------------
+   * 8. كروت المشاريع (من js/projects.js)
+   * ---------------------------------------------------------------------- */
+  var projectsRendered = false;
+  function renderProjects() {
+    var wrap = $('#plates'); if (!wrap || !window.PROJECTS) return;
+    var mode = window.PROJECTS_LAYOUT || 'auto';
+    wrap.classList.toggle('compact', mode === 'compact' || (mode === 'auto' && window.PROJECTS.length > 4));
+    var seen = $$('.plate.in', wrap).map(function (el) { return el.getAttribute('data-i'); });
+
+    wrap.innerHTML = window.PROJECTS.map(function (p, i) {
+      var L = p[lang] || p.ar || {};
+      var live = p.status === 'live';
+      var tags = (L.tags || []).map(function (t) { return '<li>' + esc(t) + '</li>'; }).join('');
+      var foot = p.link
+        ? '<a class="plate-link" href="' + esc(p.link) + '" target="_blank" rel="noopener noreferrer"><span>' + esc(tr('pr.visit')) + '</span><svg class="ico" aria-hidden="true"><use href="#i-external"/></svg></a>'
+        : '<span class="plate-hint"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>' + esc(tr('pr.soon')) + '</span>';
+      return '' +
+        '<article class="plate reveal" data-i="' + i + '">' +
+          '<div class="plate-visual"><div class="plate-stage" data-tone="' + esc(p.tone || 'teal') + '" role="img" aria-label="' + esc(L.title || '') + '">' + window.renderMockup(p, L.title || '') + '</div></div>' +
+          '<div class="plate-info">' +
+            '<div class="plate-meta"><span class="plate-cat">' + esc(L.category || '') + '</span><span class="status-pill' + (live ? ' live' : '') + '">' + esc(tr(live ? 'pr.status.live' : 'pr.status.wip')) + '</span></div>' +
+            '<h3 class="plate-title">' + esc(L.title || '') + '</h3>' +
+            '<p class="plate-desc">' + esc(L.desc || '') + '</p>' +
+            '<ul class="plate-tags">' + tags + '</ul>' +
+            '<div class="plate-foot">' + foot + '</div>' +
+          '</div>' +
+        '</article>';
+    }).join('');
+
+    $$('.plate', wrap).forEach(function (pl) {
+      if (projectsRendered && seen.indexOf(pl.getAttribute('data-i')) > -1) { pl.classList.add('in'); pl.__seen = true; }
+    });
+    observeReveals(wrap);
+    projectsRendered = true;
+
+    if (finePointer && !reduced) {
+      $$('.plate-stage', wrap).forEach(function (st) {
+        st.addEventListener('pointermove', function (e) {
+          var r = st.getBoundingClientRect();
+          st.style.setProperty('--px', (((e.clientX - r.left) / r.width - 0.5) * -16).toFixed(1) + 'px');
+          st.style.setProperty('--py', (((e.clientY - r.top) / r.height - 0.5) * -12).toFixed(1) + 'px');
+        });
+        st.addEventListener('pointerleave', function () { st.style.removeProperty('--px'); st.style.removeProperty('--py'); });
+      });
+    }
+  }
+
+  /* ------------------------------------------------------------------------
+   * 9. نموذج التواصل (Formspree + احتياطي واتساب)
+   * ---------------------------------------------------------------------- */
+  var form = $('#contact-form');
+  if (form) {
+    var nameI = $('#client-name'), contactI = $('#client-contact'), msgI = $('#client-message');
+    var typeS = $('#project-type'), submitBtn = $('#submit-btn'), alertBox = $('#form-alert');
+    var fieldOf = function (i) { return i.closest('.field'); };
+
+    function clearErrors() {
+      [nameI, contactI, msgI].forEach(function (i) { fieldOf(i).classList.remove('has-error'); });
+      alertBox.hidden = true; alertBox.textContent = '';
+    }
+    function flag(i) { fieldOf(i).classList.add('has-error'); }
+
+    function showAlert(title, text, waUrl, waLabel) {
+      alertBox.textContent = '';
+      var s = D.createElement('strong'); s.textContent = title;
+      var p = D.createElement('p'); p.textContent = text;
+      alertBox.appendChild(s); alertBox.appendChild(p);
+      if (waUrl) {
+        var a = D.createElement('a'); a.href = waUrl; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.className = 'btn btn-sm';
+        a.textContent = waLabel; alertBox.appendChild(a);
+      }
+      alertBox.hidden = false;
+    }
+
+    [nameI, contactI, msgI].forEach(function (i) {
+      i.addEventListener('input', function () { fieldOf(i).classList.remove('has-error'); });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearErrors();
+
+      var name = nameI.value.trim(), contact = contactI.value.trim(), msg = msgI.value.trim();
+      var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact);
+      var phoneOk = contact.replace(/[\s\-()+]/g, '').length >= 8 && /^[0-9+\s\-()]+$/.test(contact);
+      var bad = false;
+      if (name.length < 2) { flag(nameI); bad = true; }
+      if (!(emailOk || phoneOk)) { flag(contactI); bad = true; }
+      if (msg.length < 8) { flag(msgI); bad = true; }
+      if (bad) { var first = $('.has-error input, .has-error textarea', form); if (first) first.focus(); return; }
+
+      var opt = typeS.options[typeS.selectedIndex];
+      var typeName = typeS.value ? opt.textContent : tr('form.unknown');
+      var waUrl = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(tr('wa.msg', { name: name, contact: contact, type: typeName, msg: msg }));
+
+      var label = $('.btn-label', submitBtn), original = label.textContent;
+      submitBtn.disabled = true; label.textContent = tr('form.sending');
+
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+        .then(function (res) {
+          if (!res.ok) throw new Error('formspree');
+          showAlert(tr('form.ok.t', { name: name }), tr('form.ok.d'), waUrl, tr('form.ok.wa'));
+          form.reset();
+        })
+        .catch(function () {
+          showAlert(tr('form.fail.t', { name: name }), tr('form.fail.d'), waUrl, tr('form.fail.wa'));
+        })
+        .then(function () {
+          submitBtn.disabled = false; label.textContent = original;
+          label.textContent = (lang === 'en' && I.en['f.submit']) ? I.en['f.submit'] : label.dataset.ar || original;
+        });
+    });
+  }
+
+  /* ------------------------------------------------------------------------
+   * 10. الأزرار العائمة: نخفي زر "نموذج التواصل" عند الوصول لقسم التواصل
+   * ---------------------------------------------------------------------- */
+  var contactSec = $('#contact'), fabForm = $('#fab-form');
+  if (contactSec && fabForm && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { fabForm.classList.toggle('is-hidden', en.isIntersecting); });
+    }, { threshold: 0.2 }).observe(contactSec);
+  }
+
+  /* ------------------------------------------------------------------------
+   * تشغيل أولي
+   * ---------------------------------------------------------------------- */
+  applyLang(lang);          // يضبط النصوص + يرسم المشاريع
+  observeReveals(D);
+  onScroll();
+  window.addEventListener('load', layoutSteps);
+  if (D.fonts && D.fonts.ready) D.fonts.ready.then(layoutSteps);
+})();
